@@ -1,0 +1,13 @@
+{
+  "name":"MAK2B — مكتوب | الخدمات العامة والحلول المتكاملة",
+  "short_name":"MAK2B",
+  "start_url":"./index.html",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"portrait",
+  "background_color":"#080706",
+  "theme_color":"#080706",
+  "dir":"rtl",
+  "lang":"ar",
+  "icons":[{"src":"assets/logo.png","sizes":"1536x1536","type":"image/png","purpose":"any maskable"}]
+}
