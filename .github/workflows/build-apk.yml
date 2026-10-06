@@ -6,7 +6,8 @@ on:
     paths:
       - 'MAK2B-App-v1.1.zip'
       - '.github/workflows/build-apk.yml'
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -58,9 +59,10 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: MAK2B-Android-APK
-          path: ${{ env.APP_DIR }}/android/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
+          - name: Upload APK Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: MAK2B APK v1.0.${{ github.run_number }}
+        files: ${{ env.APP_DIR }}/android/app/build/outputs/apk/debug/app-debug.apk
+        generate_release_notes: false
